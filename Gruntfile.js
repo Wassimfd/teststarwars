@@ -2,8 +2,8 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt)
 
     grunt.initConfig({
-        
-        pkg : grunt.file.readJSON("package.json"),
+
+        pkg: grunt.file.readJSON("package.json"),
 
         browserify: {
             dist: {
@@ -23,70 +23,56 @@ module.exports = function (grunt) {
 
         sass: {
             dist: {
-              options: {
-                style: 'compressed',
-                sourcemap: "auto"
-              },
-              files: {
-                './dist/style/style.css': [
-                    './src/style/style.scss'
-                ]
-              }
-            }
-          },
-
-        eslint : {
-            options : {
-                configFile : "eslintrc.json",
-                format     : "stylish",
-                fix        : true
-            },
-            files : {
-                src : [
-                    "Gruntfile.js",
-                    "./src/**/*/*.js"
-                ]
+                options: {
+                    style: 'compressed',
+                    sourcemap: "auto"
+                },
+                files: {
+                    './dist/style/style.css': [
+                        './src/style/style.scss'
+                    ]
+                }
             }
         },
 
-        sync : {
+        sync: {
             syncHtml: {
                 files: [{
-                    cwd  : "./src",
-                    src  : ["*.html"],
-                    dest : "./dist"
+                    cwd: "./src",
+                    src: ["*.html"],
+                    dest: "./dist"
                 }]
             },
             syncAssets: {
                 files: [{
-                    cwd  : "./src/assets",
-                    src  : ["**"],
-                    dest : "./dist/assets"
+                    cwd: "./src/assets",
+                    src: ["**"],
+                    dest: "./dist/assets"
                 }]
             }
         },
 
-        uglify : {
-            files : {
-                src : [
+        uglify: {
+            files: {
+                src: [
                     "./dist/js/index.js"
                 ],
-                dest : "./dist/js/index.min.js"
+                dest: "./dist/js/index.min.js"
             }
         },
 
-        watch : {
-            sass : {
-                files   : ["./src/**/*/*.scss"],
-                tasks   : ["sass"],
+        watch: {
+            sass: {
+                files: ["./src/**/*/*.scss"],
+                tasks: ["sass"],
             },
-            scripts : {
-                files   : ["./src/**/*/*.js"],
-                tasks   : ["sync", "browserify", "uglify"],
+            scripts: {
+                files: ["./src/**/*/*.js"],
+                tasks: ["sync", "browserify", "uglify"],
             },
-            htmlFiles : {
-                files   : ["./src/*.html"],
-                tasks   : ["sync"],
+            htmlFiles: {
+                files: ["./src/*.html"],
+                tasks: ["sync"],
             },
         },
     });
