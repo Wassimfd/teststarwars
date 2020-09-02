@@ -1,0 +1,29 @@
+
+
+// ---------------------------------------------------------------------------
+// Media queries
+
+$mq-tablet-portrait: 500px;
+$mq-tablet-horizontal: 768px;
+$mq-desktop: 1024px;
+$mq-desktop-large: 1280px;
+$mq-desktop-xlarge: 1600px;
+
+$page-size: 1280px;
+
+$content-width: 780px;
+
+$breakpoints: (
+	"phablet"		: 640px,
+	"tablet"		: 768px,
+	"tablet+1"		: 769px,
+	"desktop"		: 1024px,
+	"desktop-large"	: 1280px,
+	"desktop-xlarge": 1600px
+) !default;
+
+// Timings
+$timing-slow: .1s;
+$timing-medium: .3s;
+$timing-fast: .5s;
+

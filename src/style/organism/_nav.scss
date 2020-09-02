@@ -1,0 +1,68 @@
+.nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 10px 20px;
+    transform: translateX(-100%);
+    transition: transform $timing-medium;
+    will-change: transform;;
+    background: url('../assets/header-bg.png');
+    z-index: 10;
+
+	&.js-active {
+		transform: translateX(0);
+	}
+
+	&__list {
+        width: 100%;
+	}
+
+    &__link {
+        text-transform: lowercase;
+        font-variant: small-caps;
+        color: $white;
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: color $timing-medium;
+
+        &:hover {
+            color: $primary;
+        }
+
+        @include for('desktop') {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__item {
+        text-align: center;
+    }
+
+    @include for('tablet+1') {
+        width: 100%;
+		bottom: auto;
+		transform: translateX(0);
+        background: transparentize($black, .3);
+
+        &__list {
+            max-width: $mq-desktop;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    &__burger {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 11;
+        padding: 10px;
+        background-color: transparentize($black, .7);
+    }
+}
