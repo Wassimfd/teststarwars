@@ -68,11 +68,11 @@ module.exports = function (grunt) {
             },
             scripts: {
                 files: ["./src/**/*/*.js"],
-                tasks: ["sync", "browserify", "uglify"],
+                tasks: ["browserify", "uglify"],
             },
             htmlFiles: {
                 files: ["./src/*.html"],
-                tasks: ["sync"],
+                tasks: ["sync:syncHtml"],
             },
         },
     });
